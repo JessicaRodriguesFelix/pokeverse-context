@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState } from 'react';
 
 const FavoritesContext = createContext();
 
@@ -16,9 +16,7 @@ function FavoritesProvider({ children }) {
   }
 
   return (
-    <FavoritesContext.Provider
-      value={{ favorites, addFavorite, removeFavorite }}
-    >
+    <FavoritesContext.Provider>
       {children}
     </FavoritesContext.Provider>
   );

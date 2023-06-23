@@ -1,12 +1,8 @@
-import React, { useEffect, useState, useContext } from "react";
-import { Link } from "react-router-dom";
-import Card from "react-bootstrap/Card";
-import { FavoritesContext } from "../FavoritesProvider";
-import { Button } from "react-bootstrap";
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import Card from 'react-bootstrap/Card';
 
 function PokemonCard({ name }) {
-  //Destructure addFavorite out of context
-  const { addFavorite } = useContext(FavoritesContext);
   const [pokemon, setPokemon] = useState(null);
 
   useEffect(() => {
@@ -21,19 +17,19 @@ function PokemonCard({ name }) {
   }, [name]);
 
   return (
-    <Card style={{ width: "18rem" }} className="mx-auto">
+    <Card style={{ width: '18rem' }} className='mx-auto'>
       <Card.Img
-        width="286"
-        height="286"
-        bg="dark"
-        variant="top"
+        width='286'
+        height='286'
+        bg='dark'
+        variant='top'
         src={pokemon?.sprites.front_default}
       />
       <Card.Body>
         <Card.Title>
           <Link to={`/${name}`}>{name}</Link>
         </Card.Title>
-        <Card.Text as="div">
+        <Card.Text as='div'>
           Abilities:
           <ul>
             {pokemon?.abilities.map((ability) => (
@@ -43,9 +39,6 @@ function PokemonCard({ name }) {
             ))}
           </ul>
         </Card.Text>
-        <Button variant="primary" onClick={() => addFavorite(name)}>
-          Add to Favorites
-        </Button>
       </Card.Body>
     </Card>
   );
